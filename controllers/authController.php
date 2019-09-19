@@ -9,7 +9,7 @@ session_start();
 
 
 require 'config/db.php';
-require_once 'emailController.php';
+//require_once 'emailController.php';
 
 
 
@@ -44,7 +44,7 @@ if (empty($email)) {
 if (empty($password)) {
     $errors['password'] = "Password is required";
 }
-if ($password != $password) {
+if ($password != $passwordConfirm) {
     $errors['password'] = "The password entered do not match!";
 }
 
@@ -81,21 +81,8 @@ if (count($errors) === 0) {
         $_SESSION['verified'] = $verified;
 
 
-
-
-
-
-// send verification message
-sendVerificationEmail($email, $token);
-
-
-
-
-
-
-
-
-
+        // send verification message
+        //sendVerificationEmail($email, $token);
 
         //flash message
         $_SESSION['message'] = "You are now logged in!";
